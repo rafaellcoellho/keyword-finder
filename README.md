@@ -1,10 +1,13 @@
 # Keyword Finder 
 
-An api that receives a word and a list of urls and informs how many occurrences of that word.
+Uma api que recebe uma palavra e uma lista de urls e retorna o número de ocorrencias daquela palavra em cada url.
 
 ## Tecnologias 
 
 * Flask
+* Flask-RESTPlus
+* Swagger
+*
 
 ## Pré-requisitos
 
