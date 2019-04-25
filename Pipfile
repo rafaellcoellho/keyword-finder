@@ -4,8 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-flask = "*"
-flask-restplus = "*"
+sanic = "*"
 
 [dev-packages]
 pylint = "*"
@@ -14,4 +13,4 @@ pylint = "*"
 python_version = "3.6"
 
 [scripts]
-dev = "bash -c 'FLASK_ENV=development FLASK_APP=src/main.py pipenv run flask run'"
+dev = "bash -c 'python src/main.py'"
