@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 aiohttp = "*"
+aiohttp-swagger = "*"
 
 [dev-packages]
 pylint = "*"
