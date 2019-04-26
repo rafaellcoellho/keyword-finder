@@ -5,13 +5,13 @@ name = "pypi"
 
 [packages]
 aiohttp = "*"
-gunicorn = "*"
 
 [dev-packages]
 pylint = "*"
+aiohttp-devtools = "*"
 
 [requires]
 python_version = "3.6"
 
 [scripts]
-dev = "bash -c 'gunicorn src.main:main --bind localhost:8000 --worker-class aiohttp.GunicornWebWorker --reload'"
+dev = "bash -c 'adev runserver src --app-factory=main'"

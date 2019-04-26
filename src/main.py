@@ -6,6 +6,10 @@ routes = web.RouteTableDef()
 async def hello(request):
     return web.Response(text="Huehue")
 
+@routes.get('/alive')
+async def alive(request):
+    return web.Response(text="RUNNING")
+
 async def main(): 
   app = web.Application()
   app.add_routes(routes)
