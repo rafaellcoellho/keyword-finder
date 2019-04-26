@@ -1,5 +1,6 @@
 from src.env_variables import app_env
 from aiohttp import web
+from src.spider import get_word_count
 import json
 
 if app_env == 'development':
@@ -9,17 +10,19 @@ routes = web.RouteTableDef()
 
 @routes.post('/')
 async def crawler(request):
-    req = json.loads(await request.content.read())
-
     try:
+        req = json.loads(await request.content.read())
         word = req['word']
         links = req['urls']
     except:
-        return web.HTTPBadRequest(reason="word or urls parameter not found!")
+        return web.HTTPBadRequest()
 
     res = {}
     for link in links:
-        res[link] = 0
+        try:
+            res[link] = await get_word_count(word, link)
+        except:
+            return web.HTTPBadRequest(reason="invalid url")
     
     return web.json_response(res)
 

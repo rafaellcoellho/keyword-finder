@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 aiohttp = "*"
 gunicorn = "*"
+aioredis = "*"
+"html2text" = "*"
 
 [dev-packages]
 pylint = "*"
