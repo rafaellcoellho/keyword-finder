@@ -1,27 +1,47 @@
 import os
+import json
 from aiohttp import web
 from aiohttp_swagger import setup_swagger
 
 routes = web.RouteTableDef()
 
-@routes.get('/')
-async def hello(request):
+@routes.post('/')
+async def crawler(request):
+    """
+    ---
+    description: Conta o número de ocorrencias de uma palavra em urls
+    tags:
+    - Crawler
+    produces:
+    - application/json
+    responses:
+        "200":
+            description: Sucesso. Retorna json com os resultados
+        "405":
+            description: Método Http inválido
+        "500":
+            description: Erro interno
+    """
+    req = json.loads(await request.content.read())
+    word = req['word']
+    links = req['urls']
+    print(word, "\n",links)
     return web.Response(text="Huehue")
 
 @routes.get('/alive')
 async def alive(request):
     """
     ---
-    description: This end-point allow to test that service is up.
+    description: Testar se o serviço está funcionando
     tags:
-    - Health check
+    - Testes
     produces:
     - text/plain
     responses:
         "200":
-            description: successful operation. Return "RUNNING" text
+            description: Está funcionando. Retorna "RUNNING"
         "405":
-            description: invalid HTTP Method
+            description: Método Http inválido
     """
     return web.Response(text="RUNNING")
 
