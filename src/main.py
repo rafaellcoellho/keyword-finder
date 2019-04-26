@@ -11,9 +11,12 @@ routes = web.RouteTableDef()
 async def crawler(request):
     req = json.loads(await request.content.read())
 
-    word = req['word']
-    links = req['urls']
-    
+    try:
+        word = req['word']
+        links = req['urls']
+    except:
+        return web.HTTPBadRequest(reason="word or urls parameter not found!")
+
     res = {}
     for link in links:
         res[link] = 0
