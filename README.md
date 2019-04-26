@@ -31,7 +31,7 @@ Em modo de desenvolvimento é possível ver a documentação indo em __localhost
 
 <p align="center">
 	<a href="">
-		<img alt="docs" src="docs/imgs/01.png" width="300px">
+		<img alt="docs" src="docs/imgs/01.png" width="600px">
 	</a>
 </p>
 
