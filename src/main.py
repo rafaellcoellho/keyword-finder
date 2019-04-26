@@ -1,3 +1,4 @@
+import os
 from aiohttp import web
 from aiohttp_swagger import setup_swagger
 
@@ -25,8 +26,11 @@ async def alive(request):
     return web.Response(text="RUNNING")
 
 async def main(): 
+  env = os.getenv('APP_ENV')
+  print("we are in [{}] mode".format(env))
   app = web.Application()
   app.add_routes(routes)
-  setup_swagger(app, swagger_url="/docs")
+  if env == 'development':
+      setup_swagger(app, swagger_url="/docs")
   return app
 
