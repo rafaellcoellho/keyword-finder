@@ -4,7 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-sanic = "*"
+aiohttp = "*"
+gunicorn = "*"
 
 [dev-packages]
 pylint = "*"
@@ -13,4 +14,4 @@ pylint = "*"
 python_version = "3.6"
 
 [scripts]
-dev = "bash -c 'python src/main.py'"
+dev = "bash -c 'gunicorn src.main:main --bind localhost:8000 --worker-class aiohttp.GunicornWebWorker --reload'"
