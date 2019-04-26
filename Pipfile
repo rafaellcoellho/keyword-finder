@@ -5,13 +5,12 @@ name = "pypi"
 
 [packages]
 aiohttp = "*"
-aiohttp-swagger = "*"
-python-dotenv = "*"
 gunicorn = "*"
 
 [dev-packages]
 pylint = "*"
 aiohttp-devtools = "*"
+aiohttp-swagger = "*"
 
 [requires]
 python_version = "3.6"

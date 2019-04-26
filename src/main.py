@@ -1,13 +1,16 @@
-import os
-import json
+from src.env_variables import app_env
 from aiohttp import web
-from aiohttp_swagger import setup_swagger
+import json
+
+if app_env == 'development':
+    from aiohttp_swagger import setup_swagger
 
 routes = web.RouteTableDef()
 
 @routes.post('/')
 async def crawler(request):
     req = json.loads(await request.content.read())
+
     word = req['word']
     links = req['urls']
     
@@ -22,11 +25,14 @@ async def alive(request):
     return web.Response(text="RUNNING")
 
 async def main(): 
-  env = os.getenv('APP_ENV')
-  print("we are in [{}] mode".format(env))
-  app = web.Application()
-  app.add_routes(routes)
-  if env == 'development':
-      setup_swagger(app, swagger_url="/docs", swagger_from_file="docs/main.yaml")
-  return app
+    print("we are in [{}] mode".format(app_env))
+    app = web.Application()
+    app.add_routes(routes)
+    if app_env == 'development':
+        setup_swagger(
+          app, 
+          swagger_url="/docs", 
+          swagger_from_file="docs/main.yaml"
+        )
+    return app
 
