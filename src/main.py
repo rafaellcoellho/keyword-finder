@@ -41,4 +41,3 @@ async def main():
           swagger_from_file="docs/main.yaml"
         )
     return app
-

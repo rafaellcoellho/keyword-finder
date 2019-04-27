@@ -4,14 +4,16 @@ Uma api que recebe uma palavra e uma lista de urls e retorna o número de ocorre
 
 ## Tecnologias 
 
+* python 3.6
 * [aiohttp](https://aiohttp.readthedocs.io/en/stable/index.html)
 * [aiohttp-devtools](https://github.com/aio-libs/aiohttp-devtools)
 * [aiohttp-swagger](https://github.com/cr0hn/aiohttp-swagger)
-*
+* [aioredis](https://github.com/aio-libs/aioredis/)
 
 ## Pré-requisitos
 
 * pipenv - [como instalar](https://pipenv.readthedocs.io/en/latest/install/#installing-pipenv)
+* redis - [como instalar no fedora](https://computingforgeeks.com/how-to-install-redis-on-fedora-29-fedora-28/), [como instalar usando source code](https://redis.io/download)
  
 ## Como usar
 
