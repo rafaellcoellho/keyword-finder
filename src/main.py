@@ -21,7 +21,8 @@ async def crawler(request):
 
     res = {}
     for link in links:
-        if await cache.hexists('word_count', link):
+        is_in_cache = await cache.hexists('word_count', link)
+        if is_in_cache:
             bytes = await cache.hget('word_count', link)
             res[link] = bytes.decode()
         else:
@@ -46,6 +47,6 @@ async def main():
           swagger_url="/docs", 
           swagger_from_file="docs/main.yaml"
         )
-    redis = await aioredis.create_redis_pool('redis://localhost', minsize=5, maxsize=10, loop=app.loop)
+    redis = await aioredis.create_redis_pool('redis://localhost', db=1, minsize=5, maxsize=10, loop=app.loop)
     app['redis'] = redis
     return app
