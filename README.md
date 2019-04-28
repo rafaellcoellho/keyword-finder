@@ -9,6 +9,7 @@ Uma api que recebe uma palavra e uma lista de urls e retorna o número de ocorre
 * [aiohttp-devtools](https://github.com/aio-libs/aiohttp-devtools)
 * [aiohttp-swagger](https://github.com/cr0hn/aiohttp-swagger)
 * [aioredis](https://github.com/aio-libs/aioredis/)
+* [pytest-aiohttp](https://github.com/aio-libs/pytest-aiohttp/)
 
 ## Pré-requisitos
 
