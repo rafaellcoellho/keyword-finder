@@ -18,5 +18,5 @@ aiohttp-swagger = "*"
 python_version = "3.6"
 
 [scripts]
-dev = "bash -c 'APP_ENV=development adev runserver src --app-factory=main'"
-production = "bash -c 'APP_ENV=production gunicorn src.main:main --bind localhost:8000 --worker-class aiohttp.GunicornWebWorker'"
+dev = "bash -c 'APP_ENV=development REDIS_DB=0 adev runserver src --app-factory=main'"
+production = "bash -c 'APP_ENV=production REDIS_DB=0 gunicorn src.main:main --bind localhost:8000 --worker-class aiohttp.GunicornWebWorker'"

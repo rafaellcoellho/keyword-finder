@@ -1,4 +1,4 @@
-from src.env_variables import app_env
+from src.env_variables import app_env, redis_db
 from aiohttp import web
 from src.spider import get_word_count
 import json
@@ -47,6 +47,6 @@ async def main():
           swagger_url="/docs", 
           swagger_from_file="docs/main.yaml"
         )
-    redis = await aioredis.create_redis_pool('redis://localhost', db=1, minsize=5, maxsize=10, loop=app.loop)
+    redis = await aioredis.create_redis_pool('redis://localhost', db=redis_db, minsize=5, maxsize=10, loop=app.loop)
     app['redis'] = redis
     return app

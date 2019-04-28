@@ -23,6 +23,15 @@ Após clonar o repositório, instalar as dependências:
 $ pipenv install --dev
 ```
 
+É importante verificar se o redis está instalado corretamente:
+
+```bash
+$ redis-server --version
+Redis server v=5.0.4 sha=00000000:0 malloc=jemalloc-5.0.1 bits=64 build=dffd4a7a8e0cd2aa
+```
+
+E definir qual o db o redis vai usar. Só ir no pipfile e editar a variável de ambiente __REDIS_DB__. Por default ela é setada pra 0. 
+
 Para rodar em desenvolvimento basta dar um: 
 
 ```bash
@@ -34,6 +43,27 @@ Em modo de desenvolvimento é possível ver a documentação indo em __localhost
 <p align="center">
 	<a href="">
 		<img alt="docs" src="docs/imgs/01.png" width="600px">
+	</a>
+</p>
+
+Para rodar os testes basta dar um: 
+
+```bash
+$ pipenv run tests
+```
+
+Um exemplo de como usar a api: 
+
+```bash
+$ curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{"word": "aiohttp", "urls": ["https://aiohttp.readthedocs.io/en/stable/index.html", "https://aiohttp.readthedocs.io/en/stable/testing.html"]}' 'http://localhost:8000/'
+{"https://aiohttp.readthedocs.io/en/stable/index.html": "20", "https://aiohttp.readthedocs.io/en/stable/testing.html": "109"}
+```
+
+É possível também testar a api usando a própria documentação:
+
+<p align="center">
+	<a href="">
+		<img alt="another docs" src="docs/imgs/02.png" width="600px">
 	</a>
 </p>
 

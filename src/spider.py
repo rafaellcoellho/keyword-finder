@@ -14,5 +14,5 @@ async def get_word_count(word, url):
             raw_content = await resp.text()
             raw_text = parser.handle(raw_content).lower()
             n = raw_text.count(word.lower())
-            return n
+            return str(n)
     

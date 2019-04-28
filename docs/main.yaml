@@ -41,7 +41,7 @@ paths:
             type: object
             additionalProperties:
               type: string
-            example: {"google.com": 2}
+            example: {"google.com": "2"}
         "405":
             description: Método Http inválido
         "500":
