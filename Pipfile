@@ -13,7 +13,6 @@ aioredis = "*"
 pylint = "*"
 aiohttp-devtools = "*"
 aiohttp-swagger = "*"
-pytest-aiohttp = "*"
 
 [requires]
 python_version = "3.6"
@@ -21,4 +20,3 @@ python_version = "3.6"
 [scripts]
 dev = "bash -c 'APP_ENV=development REDIS_DB=0 adev runserver src --app-factory=main'"
 production = "bash -c 'APP_ENV=production REDIS_DB=0 gunicorn src.main:main --bind localhost:8000 --worker-class aiohttp.GunicornWebWorker'"
-tests = "bash -c 'python tests/main.py'"
