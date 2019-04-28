@@ -46,6 +46,12 @@ Em modo de desenvolvimento é possível ver a documentação indo em __localhost
 	</a>
 </p>
 
+Para rodar os testes basta dar um:
+
+```bash
+$ pipenv run tests
+```
+
 Um exemplo de como usar a api: 
 
 ```bash

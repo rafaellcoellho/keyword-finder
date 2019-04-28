@@ -8,12 +8,12 @@ aiohttp = "*"
 gunicorn = "*"
 aioredis = "*"
 "html2text" = "*"
-pytest-aiohttp = "*"
 
 [dev-packages]
 pylint = "*"
 aiohttp-devtools = "*"
 aiohttp-swagger = "*"
+pytest-aiohttp = "*"
 
 [requires]
 python_version = "3.6"
