@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://keyword-finder.heroku.com" target="_blank" rel="noopener noreferrer">
-    <img alt="Logo" src="./logo.png" width="400px">
+    <img alt="Logo" src="./logo.png" width="200px">
   </a>
 </p>
 
