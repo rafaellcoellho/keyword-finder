@@ -1,0 +1,28 @@
+version: '3'
+services:
+  web:
+    build: .
+    entrypoint: uvicorn app.main:app --host 0.0.0.0 --port 80 --reload
+    env_file: .env
+    ports:
+      - "80:80"
+    volumes:
+      - .:/keyword-finder
+    depends_on:
+      - db
+    links:
+      - "db:database"
+  test:
+    build: .
+    entrypoint: pytest
+    volumes:
+      - .:/keyword-finder
+    env_file: test.env
+    depends_on:
+      - db
+    links:
+      - "db:database"
+  db:
+    image: redis:5.0.6
+    ports:
+      - "6379:6379"
