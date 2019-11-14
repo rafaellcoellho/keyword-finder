@@ -1,3 +1,7 @@
 {
-  "python.pythonPath": "/home/rafaellcoellho/.local/share/virtualenvs/keyword-finder-VL09CCql/bin/python"
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true,
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true
 }
